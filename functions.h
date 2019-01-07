@@ -4,7 +4,10 @@
 #include <iterator>
 #include <iostream>
 
+#include "ChronoTimer.h"
+
 #define LOG(log_msg) std::cout << log_msg << "\n";
+#define LOGt(log_msg) std::cout << log_msg << "\n"
 
 //    Create a function that returns a set of random
 // numbers.
