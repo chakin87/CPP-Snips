@@ -13,7 +13,7 @@ ChronoTimer::ChronoTimer(int numOfFilesSorted) :
 	start = std::chrono::high_resolution_clock::now();
 }
 
-ChronoTimer::ChronoTimer(std::string  fileName, std::string  title, std::string  timingDescription, std::string  typeTimed, const int & numOfFilesSorted) :
+ChronoTimer::ChronoTimer(const std::string& fileName, const std::string& title, const std::string& timingDescription, const std::string& typeTimed, const int & numOfFilesSorted) :
 	constructorUsed(2), numFiles(numOfFilesSorted), m_filename(fileName),
 	m_title(title), m_description(timingDescription), m_type(typeTimed)
 {

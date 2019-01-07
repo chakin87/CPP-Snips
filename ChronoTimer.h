@@ -15,7 +15,7 @@ public:
 	// to the task at hand.
 	ChronoTimer(int numOfFilesSorted);// constructor 1
 	//    Constructor 2 is more of a general purpose type and weill be used in this program.
-	ChronoTimer(std::string fileName, std::string title, std::string timingDescription, std::string  typeTimed, const int& numOfFilesSorted);// Constructor 2
+	ChronoTimer(const std::string& fileName, const std::string& title, const std::string& timingDescription, const std::string& typeTimed, const int& numOfFilesSorted);// Constructor 2
 
 	//   The destructor is very important. The timer is set and only stops once the 
 	// ChonoTimer Object goes out of scope. I will implemnt more ways to use it, but
