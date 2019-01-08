@@ -28,6 +28,14 @@ int main(int argc, char** argv) {
 	// operation are nessecary in this example.
 	std::cout << "The speed is " << (s_speed > 10 ? "less than 10!" : "Greater than 10!");
 
+	s_level = s_level == 1 ? 3 : 2;
+	std::cout << "\n\nSpeed: " << s_speed << " Level: " << s_level;
+
+	//    Here is an example of a nested ternary.
+	s_speed = (s_level > 2) ? (s_level > 10) ? 15 : 10 : 3;
+	std::cout << "\n\nSpeed: " << s_speed << " Level: " << s_level;
+
+	std::cout << "\n\ns_level: " << s_level << "\n";
 	//    The ternary operation below sets either a or b to 3
 	// if cond is true.
 	int a, b;
