@@ -24,7 +24,6 @@
 
 //    Lets create a vector object to show how to apply some opereator
 // overloading. 
-
 struct Vector2f {
 	float x, y;
 
@@ -52,8 +51,30 @@ struct Vector2f {
 		stream << "[x: " << other.x << "][y: " << other.y << "]";
 		return stream;
 	}
+	//    Overloadiung[] incase i want to iterate through x,y with a for loop.
+	// This would be more useful if there were more members to loop through.
+	const int& operator[](unsigned int index) {
+		return index == 0 ? x : index == 1 ? y : 0.0f;
+	}
 };
 
+class scoped_ptr {
+private:
+	Demo* m_ptr;
+public:
+	scoped_ptr(Demo* d_ptr) :m_ptr(d_ptr) {}
+	~scoped_ptr() { delete m_ptr; }
+
+	//    This is an instance in which you would want to overload the ->
+	// operator. It would conform to the C++ standards.
+	Demo* operator->() {
+		return m_ptr;
+	}
+	//    For const ptrs..
+	const Demo* operator->() const {
+		return m_ptr;
+	}
+};
 
 class Fraction
 {
@@ -87,6 +108,43 @@ Fraction operator*(Fraction lhs, const Fraction& rhs)
 {
 	return lhs *= rhs;
 }
+
+
+class String {
+public: // Constructors
+	String(const char* string) {
+		m_size = strlen(string);
+		m_buffer = new char[m_size + 1];
+		memcpy(m_buffer, string, m_size);
+		//    Adding null terminator to the end of the new string.
+		m_buffer[m_size] = 0;
+	}
+
+	String(const String& other)
+		: m_size(other.m_size) {
+		//    We allocate a new m_buffer at the needed size and then copy the buffer
+		// into it.
+		m_buffer = new char[m_size + 1];
+		memcpy(m_buffer, other.m_buffer, m_size + 1);
+		std::cout << "\nA String was copied!\n";
+	}
+	~String() {
+		//    Here we make sure to clean up the Heap allocated buffer.
+		delete m_buffer;
+	}
+public: // Methods
+	friend std::ostream& operator<<(std::ostream& stream, const String& string) {
+		stream << string.m_buffer;
+		return stream;
+	}
+	char& operator[](unsigned int index) {
+		//TODO: Add saftey measures, boundaries, etc.
+		return m_buffer[index];
+	}
+private: // Members
+	char* m_buffer;
+	unsigned int m_size;
+};
 
 int main(int argc, char** argv) {
 

@@ -30,6 +30,10 @@ private:
 public:
 	scoped_ptr(Demo* d_ptr) :m_ptr(d_ptr) {}
 	~scoped_ptr() { delete m_ptr; }
+
+	Demo* operator->() {
+		return m_ptr;
+	}
 };
 
 int main(int argc, char** argv) {
@@ -57,6 +61,7 @@ int main(int argc, char** argv) {
 		scoped_ptr sptr = new Demo(3);
 		//    explicit ctor
 		scoped_ptr sptr2(new Demo(4));
+		
 		system("pause");
 	}
 	//    As you see, the sptr and sptr2 are both Heap allocated, but the wrapper

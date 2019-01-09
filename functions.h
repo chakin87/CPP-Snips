@@ -33,6 +33,25 @@ public: // Constructors
 		LOG(__FUNCTION__ << " Constructed - Ctor: 2, Name: " << m_name << ", Age: " << m_age << "\n")
 	}
 
+
+
+class String {
+public: // Constructors
+	String(const char* string) {
+		m_size = strlen(string);
+		m_buffer = new char[m_size];
+		memcpy(m_buffer, string, m_size);
+	}
+public: // Methods
+	friend std::ostream& operator<<(std::ostream& stream, const String& string) {
+		stream << string.m_buffer;
+		return stream;
+	}
+private: // Members
+	char* m_buffer;
+	unsigned int m_size;
+};
+
 public: // Methods
 	inline const std::string getName() { return m_name; } 
 	inline const int getAge() { return m_age; } 
@@ -40,4 +59,24 @@ private: // Members
 	std::string m_name;
 	int m_age;
 
+};
+struct Vector3i {
+	int x, y, z;
+	Vector3i(int x, int y, int z)
+		:x(x), y(y), z(z) {}
+	//    We will go ahead and declare a default copy constructor.
+	// This will tell us everytime the vector is copied and it will help
+	// demonstrate how and when Vectors resize.
+	Vector3i(const Vector3i& vec)
+		:x(vec.x), y(vec.y), z(vec.z) {
+		std::cout << "\nCopied!\n";
+	}
+	const int& operator[](unsigned int index) {
+		return index == 0 ? x : index == 1 ? y : index == 2 ? z : 0;
+	}
+
+	friend std::ostream& operator<<(std::ostream& stream, const Vector3i& vec3i) {
+		stream << vec3i.x << ", " << vec3i.y << ", " << vec3i.z;
+		return stream;
+	}
 };
