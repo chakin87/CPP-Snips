@@ -97,15 +97,3 @@ int main(int argc, char** argv) {
 	std::cin.get();
 	return 0;
 }
-/*#include "functions.h"
-
-
-
-int main(int argc, char** argv) {
-
-
-
-	std::cin.get();
-
-	return 0;
-}*/
