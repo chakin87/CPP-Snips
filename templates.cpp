@@ -4,6 +4,8 @@
 // The compiler will determine the appropriate type/types to use and then it will
 // complile a function that meets those needs.
 
+//    Templates can also be variables 
+
 
 #include "functions.h"
 
@@ -27,6 +29,11 @@ void print(float f) { std::cout << f << "\n"; }
 template<typename T>
 void print(T t) { std::cout << t << " USED TEMPLATE f(x)\n"; }
 
+//    Template variable, what what! With constexpr and Template both handled at
+// compile time, this 'pi' variable becomes extremely reliable and type safe.
+	template<typename VAR>
+	constexpr VAR pi = VAR(3.1415926535897932385L);
+
 int main(int argc, char** argv) {
 
 	//    This is just scratching the surface but you can see how powerful
@@ -35,12 +42,14 @@ int main(int argc, char** argv) {
 	StackArray<std::string, 25> b;
 
 
+	print(pi<long double>);
+
 	bool t = true;
 	print(25);
 	print("const char*");
 	print(3.1459);
 	print(3.1459f);
-	print(3.14592134l);
+	print(3.145926653);
 	print((std::string)"std::string");
 	std::cout << std::boolalpha;
 	print(t);
