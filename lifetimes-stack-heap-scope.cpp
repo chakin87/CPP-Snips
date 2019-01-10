@@ -1,3 +1,24 @@
+//					Stack and Heap
+//    The stack and heap are both located in ram. The work differently from each
+// other but can both be accessed and allocated to in our programs. The difference 
+// is how it stores the data.
+//    The Stack allocations work like this: [        ] <- empty stack, no allocations.
+// As you create variables and containers on the stack, it fills up in order,
+// like this: [||     ] <-2 variables  [|||    ]<-3 variables [|||||| ]<-6 variables 
+// The Stack fills up like you were stacking the variables right next to each other.
+// Stack allocations are very fast. Allocating to the Stack is basically a single
+// cycle. The stack keeps a pointer(stack pointer) to where it's at and when you allocate to the 
+// stack it gives the memory address, allocates the variables, and then moves then moves then
+// stack pointer to the end of the newly allocated memory. That's it. Super easy, super fast.
+//
+//    The Heap is allocated to by using the new keyword. Heap allocations must be 
+// removed via delete or delete[] keywords. If you are using smart pointers then 
+// they will be allocated to the Heap, but the smart pointers will handle their 
+// own delete/delete[]. **The easiest way to remember when to use delete/delete[],
+// is if you use new/new[] then you must use delete/delete[].**
+//
+
+
 #include "functions.h"
 
 struct Demo {
