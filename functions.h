@@ -8,6 +8,9 @@
 #include "ChronoTimer.h"
 
 #define LOG(log_msg) std::cout << log_msg << "\n";
+#define LIST(log_msg) std::cout << log_msg << " ";
+//    Don't name #define 'l' like below. :P
+#define l(log_msg) std::cout << "\n" << log_msg << "\n";
 #define LOGt(log_msg) std::cout << log_msg << "\n"
 
 //    Create a function that returns a set of random

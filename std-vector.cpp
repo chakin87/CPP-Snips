@@ -1,4 +1,5 @@
 //				STD::VECTOR
+//			MEMBER OF STL CONTAINER
 
 //    The array that resizes!
 // NOTES:
@@ -8,16 +9,18 @@
 //    vector, a new and larger vector will be created and then said vector will COPY
 //    the other vecs values. This can cause a performance drop.
 // 3) Vectors can be great and fast if the above 'resizing' is not done.
-// 4)
-// 5)
+// 4) Holds data in sequential order.
+// 5) Vectors Have many cool and convenient constructors!
 
 
 //    This is needed for vector. std::vector has an inappropriate name.
 // It is not a mathmatical vector, but more of a dynamic array. It is 
 // similar to a set that doesn't enforce any type of uniqueness. 
 #include <vector>
+#include <iostream>
 
-#include "functions.h"
+
+//#include "functions.h" // Vector3i redefinition
 
 struct Vector3i {
 	int x, y, z;
