@@ -4,14 +4,32 @@
 #include <iterator>
 #include <iostream>
 #include <string>
+#include <conio.h>
+#include <cstdio>
+#include <Windows.h>
 
 #include "ChronoTimer.h"
+
+#define FOREGROUND_WHITE 0x0007
 
 #define LOG(log_msg) std::cout << log_msg << "\n";
 #define LIST(log_msg) std::cout << log_msg << " ";
 //    Don't name #define 'l' like below. :P
 #define l(log_msg) std::cout << "\n" << log_msg << "\n";
 #define LOGt(log_msg) std::cout << log_msg << "\n"
+#define WAIT std::cin.get();
+void pad_to(std::string& str, const size_t len, const char padding_char);
+void pad_to_offset(std::string& str, const size_t len, int offset, const char padding_char);
+void print_new_section(const char* msg_80_chars/*80 char max*/);
+void print_new_section(const char * msg_80_chars, HANDLE h);
+void print_sub_section(const char* msg_80_chars/*80 char max*/);
+void print_sub_section(const char * msg_80_chars, HANDLE h);
+void print_note_section(const char* multi_line);
+void print_note_section(const char* multi_line, HANDLE h);
+void print_note_sections(const char* multi_line);
+void print_note_sections(const char* multi_line, HANDLE h);
+
+
 
 //    Create a function that returns a set of random
 // numbers.
