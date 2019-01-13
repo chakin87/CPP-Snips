@@ -11,6 +11,7 @@
 #include "ChronoTimer.h"
 
 #define FOREGROUND_WHITE 0x0007
+#define FOREGROUND_YELLOW 0X0006
 
 #define LOG(log_msg) std::cout << log_msg << "\n";
 #define LIST(log_msg) std::cout << log_msg << " ";
