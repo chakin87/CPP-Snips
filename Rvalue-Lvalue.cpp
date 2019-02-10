@@ -61,12 +61,14 @@ int main(int argc, char** argv) {
 	
 	BigClass recycle = createBigClass();
 
+	// refbc() takes recycle as ref, so there is no move or copy.
 	refbC(recycle);
-
+	// copybC(std::move(recycle)); uses the move constructor to do a shallow copy
+	// and then the copy is discarded after the function scope.
 	copybC(std::move(recycle));
-
+	// This copybc makes a deep copy and discards the copy after the scop ofthe function.
 	copybC(recycle);
-	// recylce will die here..
+	
  
 
 	getchar();
