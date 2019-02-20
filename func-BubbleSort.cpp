@@ -8,10 +8,29 @@
 #include <ctime>
 #include <cmath>
 
-std::vector<int> RandomIntVec(int numOfNums,
-	int min, int max);
 
-void BubbleSort(std::vector<int>& theVec);
+template<typename Container>
+
+void BubbleSort(Container& container) {
+
+	int i = container.size() - 1;
+
+	while (i >= 1) {
+		int  j = 0;
+		while (j < i) {
+			if (container[j] >= container[j + 1]) {
+			int temp = container[j];
+				container[j] = container[j + 1];
+				container[j + 1] = temp;
+			}
+			j += 1;
+		}
+		i -= 1;
+	}
+}
+
+std::vector<int> RandomIntVec(int numOfNums, int min, int max);
+
 
 int main() {
 
@@ -45,22 +64,4 @@ std::vector<int> RandomIntVec(int numOfNums,
 		i++;
 	}
 	return vecValues;
-}
-
-void BubbleSort(std::vector<int>& container) {
-
-	int i = container.size() - 1;
-
-	while (i >= 1) {
-		int  j = 0;
-		while (j < i) {
-			if (container[j] >= container[j + 1]) {
-			int temp = container[j];
-				container[j] = container[j + 1];
-				container[j + 1] = temp;
-			}
-			j += 1;
-		}
-		i -= 1;
-	}
 }
