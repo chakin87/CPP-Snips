@@ -22,9 +22,9 @@ as I can.
 
 
 ## Why?
-I have created this repo for myself as a reference for many of the powerful templates 
+I have created this repo for myself and friends as a reference for many of the powerful templates 
 in the STL, keywords, functions, custom functions, and much more. I will continue to 
-add to this repo when I have time. I use it as a tool to reinforce what I learn and as 
+add to this repo when I have time. I use this Repo as a tool to reinforce what I learn and as 
 a quick reference.
 
 ## More to Come!

@@ -8,9 +8,11 @@
 #include <ctime>
 #include <cmath>
 
-
+// The BubbleGum Sort :P
+// Works with most STL containers.
+// NOTE: Will not work with maps AND container class
+// must have the .size() member. 
 template<typename Container>
-
 void BubbleSort(Container& container) {
 
 	int i = container.size() - 1;
@@ -41,8 +43,6 @@ int main() {
 
 	for (auto x : vecVals)
 		std::cout << x << "\n";
-
-
 
 	std::getchar();
 	return 0;
