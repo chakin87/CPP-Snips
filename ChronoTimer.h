@@ -2,14 +2,13 @@
 #define	CHRONOTIMER_HPP
 #include <chrono>
 #include <string>
-//#include <thread>
 #include <iostream>
 #include <fstream>
 
 class ChronoTimer
 {
 public:
-	ChronoTimer();// constructor 0
+	ChronoTimer();// constructor 0 
 	//   Constructor 1 was made for a specific program I did in school. I made
 	// this timing class to be barebones, so that you must tailor its use case
 	// to the task at hand.
