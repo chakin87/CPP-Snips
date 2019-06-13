@@ -18,6 +18,7 @@
 int main(int argc, char** argv) {
 
 	unsigned short i;
+	unsigned short index = 0;
 	unsigned long value = 0;
 	std::vector<unsigned long> VanEck_Values;
 	
@@ -26,22 +27,28 @@ int main(int argc, char** argv) {
 	OUT("\n\nEnter the number of iterations: ");
 	IN_INT(i);
 	
+	VanEck_Values.emplace(VanEck_Values.end(), value);
+
 	while (i--) {
-		VanEck_Values.emplace_back(value);
-		OUT("Iteration " << i << ": " << value << "\n");
+		
+		VanEck_Values.emplace(VanEck_Values.end(), value);
+		OUT("Iteration " << index++ << ": " << value << "\n");
 	
 
 		// Reverse iterate throught VanEck vec to check for values previous loc.
-		auto check = std::find(VanEck_Values.rbegin(), VanEck_Values.rend(), value);
+		auto check = std::find(VanEck_Values.rbegin()+1, VanEck_Values.rend(), value);
 
 		if (check == VanEck_Values.rend()) {
 			value = 0;
+		//	OUT("\n        IN  IF     \n");
 			continue;
 		}
 		else {
-			auto distance = std::distance(check, VanEck_Values.rbegin());
-				value = ++distance;
-				OUT(distance);
+			auto distance = std::distance(VanEck_Values.rbegin(), check);
+				value = distance;
+			//	OUT("distance: " << distance << "\n");
+			//OUT("\n        IN  else    \n");
+
 		}
 
 
