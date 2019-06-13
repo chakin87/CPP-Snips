@@ -1,6 +1,9 @@
 //#includes LOL
 #include <iostream>
 #include <string>
+#include <ctime>
+
+#include "func-PrintVarInfo.h"
 
 
 
@@ -11,6 +14,13 @@ void For3L(unsigned long long& theLongNum);
 void For2L(unsigned long long& theLongNum);
 void For1L(unsigned long long& theLongNum);
 
+//defines
+
+#define PRINT(x1, x2)\
+	PrintVarInfoFull(theLong, "theLong", x1, x2);
+
+#define PRINT\
+	PrintVarInfoFull(theLong, "theLong", "\t\t\t*****", "\t\t\t*****");
 
 
 int main(int argc, char** argv) {
@@ -18,11 +28,28 @@ int main(int argc, char** argv) {
 	std::string input;
 	unsigned long long theLong = 0;
 
-	std::cout << "The value of theLong: [" << theLong << "]\n\n";
+	//Stack OverFlow
+	//long long theLongArray[129000];
 
-	For5L(theLong);
 
-	std::cout << "The value of theLong: [" << theLong << "]\n\n";
+		PRINT;
+		int timer = 10000, t = timer, b = 0;
+
+
+	for (int i = 0; i < 10000; ++i) {
+		For4L(theLong);
+
+
+		while (--t) {
+			++b;
+		}
+		t = timer;
+		//++theLong;
+		//theLong += (rand() * 10000) +theLong;
+		system("CLS");
+		PRINT;
+	}
+
 
 	std::cin >> input;
 
@@ -32,7 +59,7 @@ int main(int argc, char** argv) {
 
 void For5L(unsigned long long& theLongNum) {
 	for (short i = 0; i < 100; ++i) {
-		std::cout << "The value of theLong: [" << theLongNum << "]\n\n";
+		//std::cout << "The value of theLong: [" << theLongNum << "]\n\n";
 		//++theLongNum;
 		For4L(theLongNum);
 	}

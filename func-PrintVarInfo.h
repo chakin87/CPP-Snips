@@ -1,3 +1,4 @@
+#pragma once
 #include <iostream>
 #include <type_traits>
 #include <typeinfo>
@@ -40,15 +41,3 @@ void PrintVarInfoFull(T var, const char* varName = "", const char* header = "", 
 	std::cout << footer << (footer != "" ? ("\n") : "");
 	std::cout << "***********************************************************************\n";
 }
-
-/*
-int main(int argc, char** argv) {
-
-	int a = 5;
-
-	PrintVarInfo(a, "a");
-
-	getchar();
-	return 0;
-}
-*/
