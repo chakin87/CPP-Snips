@@ -38,9 +38,11 @@ void InsertValue(std::vector<unsigned long>& vaneckVec, unsigned long& value) {
 }
 
 void Percent(unsigned long i, unsigned long itotal) {
-	if (i % 100 == 0) {
-		system("CLS");
-		std::cout << "Percent left to process: " << (100 * ((float)i / (float)itotal));
+	while (1) {
+		if (i % 100 == 0) {
+			system("CLS");
+			std::cout << "Percent left to process: " << (100 * ((float)i / (float)itotal));
+		}
 	}
 }
 
@@ -50,11 +52,14 @@ int main(int argc, char** argv) {
 	unsigned long itotal;
 	unsigned long index = 0;
 	unsigned long value = 0;
+	bool launched = false;
 	std::vector<unsigned long> VanEck_Values;
 	
 	Intro(i, itotal, VanEck_Values);
 
 
+		
+	
 	while (i--) {
 
 		InsertValue(VanEck_Values, value);
@@ -84,7 +89,7 @@ int main(int argc, char** argv) {
 			system("CLS");
 			OUT("Percent left to process: " << (100 * ((float)i / (float)itotal)));
 		}
-		//std::async(std::launch::async, Percent, i, itotal);
+
 	}
 	
 	
