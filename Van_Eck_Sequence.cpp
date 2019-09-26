@@ -87,7 +87,7 @@ int main(int argc, char** argv) {
 
 		if (i % 100 == 0) {
 			system("CLS");
-			OUT("Percent left to process: " << (100 * ((float)i / (float)itotal)));
+			OUT("Percent completed: " << 100 - (100 * ((float)i / (float)itotal)));
 		}
 
 	}
