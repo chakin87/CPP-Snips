@@ -42,7 +42,7 @@ NOTE 2: The 0x0 (empty matrix) is represented as [[]]
 int main(int argc, char** argv) {
 
 
-	system("ping 8.8.8.8");
+	}
 
 
 
