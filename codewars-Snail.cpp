@@ -45,11 +45,11 @@ std::vector<int> snail(std::vector<std::vector<int>> snail_map) {
 	int xPtr = 0;
 	int yPtr = 0;
 	int rPtr = 0;
-	int rowLength = snail_map.size();
+	int rowLength = snail_map[0].size();
 	std::vector<int> retVec;
-	std::cout << std::endl << "rowLength: " << rowLength << std::endl;
+	//std::cout << std::endl << "rowLength: " << rowLength << std::endl;
 
-	for (int i = 0; i <= snail_map.size() * snail_map.size(); ++i) {
+	for (int i = 0; i <= ((snail_map[0].size() * snail_map[0].size()) + 3); ++i) {
 
 		if(ptrDir == RIGHT) {
 			if (rPtr < rowLength) {
@@ -80,7 +80,7 @@ std::vector<int> snail(std::vector<std::vector<int>> snail_map) {
 		}
 		if (ptrDir == LEFT) {
 			if (rPtr < rowLength) {
-			std::cout << "snail_map[" << yPtr << "][" << xPtr << "]: " << snail_map[yPtr][xPtr] << ", rowPtr: " << rPtr << ", rowLength: " << rowLength << std::endl;
+				std::cout << "snail_map[" << yPtr << "][" << xPtr << "]: " << snail_map[yPtr][xPtr] << ", rowPtr: " << rPtr << ", rowLength: " << rowLength << std::endl;
 				retVec.push_back(snail_map[yPtr][xPtr]);  //if left decr x for row len; decr row len; NOTE [y][--x]
 				++rPtr;  --xPtr;
 			}
@@ -108,7 +108,7 @@ std::vector<int> snail(std::vector<std::vector<int>> snail_map) {
 
 
 	
-	return {0};
+	return {};
 }
 
 //--------------------------------------------------------------------------------------//
@@ -116,13 +116,39 @@ std::vector<int> snail(std::vector<std::vector<int>> snail_map) {
 //Testing Stage
 int main(int argc, char** argv) {
 
+	std::vector<std::vector<int>> test_snail_mapA{ {1, 2},
+											      {4, 5},
+											     };
+
+	std::vector<std::vector<int>> test_snail_mapB{ {1, 2}
+	};
+
+
 	std::vector<std::vector<int>> test_snail_map{ {1, 2 ,3}, 
 												  {4, 5, 6}, 
 												  {7, 8, 9} };
 
 	std::vector<std::vector<int>> test_snail_map2{ {1,  2,  3,  4,  5,  6},
 											       {7,  8,  9,  10, 11, 12},
-											       {13, 14, 15, 16, 17, 18} };
+											       {13, 14, 15, 16, 17, 18},
+												   {19, 20, 21, 22, 23, 24}, 
+												   {25, 26, 27, 28, 29, 30},
+												   {31, 32, 33, 34, 35, 36}
+
+
+	};
+
+
+	std::vector<std::vector<int>> test_snail_map3{ {1,  2,  3,  4,  5,  6, 61},
+												   {7,  8,  9,  10, 11, 12, 121},
+												   {13, 14, 15, 16, 17, 18, 181},
+												   {19, 20, 21, 22, 23, 24, 241},
+												   {25, 26, 27, 28, 29, 30, 301},
+												   {31, 32, 33, 34, 35, 36, 361},
+	                                               {37, 38, 39, 40, 41, 42, 43}
+
+
+	};
 
 	snail(test_snail_map);
 
@@ -130,6 +156,21 @@ int main(int argc, char** argv) {
 
 	snail(test_snail_map2);
 
+	std::cout << std::endl << "-------------------------------------------------" << std::endl;
+
+	snail(test_snail_map3);
+
+	std::cout << std::endl << "-------------------------------------------------" << std::endl;
+
+	snail(test_snail_mapA);
+
+	std::cout << std::endl << "-------------------------------------------------" << std::endl;
+
+	snail(test_snail_mapB);
+
+	std::cout << std::endl << "-------------------------------------------------" << std::endl;
+
+//	snail(test_snail_mapC);
 
 
 
